@@ -11,17 +11,18 @@ public class TestPagedInv extends PagedFastInv {
     public TestPagedInv() {
         super(27, "Test Paged Inventory");
         setup();
+        setBorderItem(ClickableItem.of(new ItemStack(Material.WHITE_STAINED_GLASS_PANE)));
         refresh();
     }
 
     private void setup() {
         ItemMap map1 = createNewPage();
-        map1.setItem(0, new CountUpClickableItem());
-        map1.setItem(8, new CountUpClickableItem());
+        map1.setItem(10, new CountUpClickableItem());
+        map1.setItem(16, new CountUpClickableItem());
 
         ItemMap map2 = createNewPage();
-        map2.setItem(0, new SimpleClickableItem(new ItemStack(Material.STONE), event -> event.getWhoClicked().sendMessage("Stone")));
-        map2.setItem(1, new SimpleClickableItem(new ItemStack(Material.TNT), event -> event.getWhoClicked().sendMessage("TNT")));
+        map2.setItem(10, new SimpleClickableItem(new ItemStack(Material.STONE), event -> event.getWhoClicked().sendMessage("Stone")));
+        map2.setItem(11, new SimpleClickableItem(new ItemStack(Material.TNT), event -> event.getWhoClicked().sendMessage("TNT")));
 
         setLastLineSequence((slot, item) -> {
             if (slot == 0) {
