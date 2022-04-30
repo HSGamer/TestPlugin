@@ -79,9 +79,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>me.HSGamer</groupId>
-            <artifactId>HSCore-bukkit-baseplugin</artifactId>
-            <version>3.19</version>
+            <groupId>me.hsgamer</groupId>
+            <artifactId>hscore-bukkit-simpleplugin</artifactId>
+            <version>4.0.4</version>
         </dependency>
     </dependencies>
 </project>
