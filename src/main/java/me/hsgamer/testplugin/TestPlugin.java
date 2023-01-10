@@ -26,5 +26,13 @@ public final class TestPlugin extends BasePlugin implements Listener {
 
         System.out.println("Test Int: " + testConfig.getTestInt());
         System.out.println("Test Integer: " + testConfig.getTestInteger());
+        System.out.println("Test String: " + testConfig.getTestString());
+        System.out.println("Test Boolean: " + testConfig.getTestBoolean());
+        System.out.println("Test Double: " + testConfig.getTestDouble());
+        System.out.println("Test Float: " + testConfig.getTestFloat());
+        System.out.println("Test Long: " + testConfig.getTestLong());
+        System.out.println("Test Short: " + testConfig.getTestShort());
+        System.out.println("Test Byte: " + testConfig.getTestByte());
+        System.out.println("Test Char: " + testConfig.getTestChar());
     }
 }

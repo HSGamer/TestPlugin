@@ -19,4 +19,44 @@ public interface TestConfig {
     default Integer getTestInteger() {
         return 10;
     }
+
+    @ConfigPath("test.string")
+    default String getTestString() {
+        return "TestString";
+    }
+
+    @ConfigPath("test.boolean")
+    default boolean getTestBoolean() {
+        return true;
+    }
+
+    @ConfigPath("test.double")
+    default double getTestDouble() {
+        return 10.0;
+    }
+
+    @ConfigPath("test.float")
+    default float getTestFloat() {
+        return 10.0f;
+    }
+
+    @ConfigPath("test.long")
+    default long getTestLong() {
+        return 10L;
+    }
+
+    @ConfigPath("test.short")
+    default short getTestShort() {
+        return 10;
+    }
+
+    @ConfigPath("test.byte")
+    default byte getTestByte() {
+        return 10;
+    }
+
+    @ConfigPath("test.char")
+    default char getTestChar() {
+        return 'a';
+    }
 }
