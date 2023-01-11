@@ -34,5 +34,9 @@ public final class TestPlugin extends BasePlugin implements Listener {
         System.out.println("Test Short: " + testConfig.getTestShort());
         System.out.println("Test Byte: " + testConfig.getTestByte());
         System.out.println("Test Char: " + testConfig.getTestChar());
+        System.out.println("Test BigInteger: " + testConfig.getTestBigInteger());
+        System.out.println("Test BigDecimal: " + testConfig.getTestBigDecimal());
+        System.out.println("Test URL: " + testConfig.getTestURL());
+        System.out.println("Test Instant: " + testConfig.getTestInstant());
     }
 }

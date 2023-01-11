@@ -2,6 +2,12 @@ package me.hsgamer.testplugin;
 
 import me.hsgamer.hscore.config.annotation.ConfigPath;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.time.Instant;
+
 public interface TestConfig {
     @ConfigPath(value = "test.object", converter = TestConverter.class)
     default TestObject getTestObject() {
@@ -58,5 +64,29 @@ public interface TestConfig {
     @ConfigPath("test.char")
     default char getTestChar() {
         return 'a';
+    }
+
+    @ConfigPath("test.instant")
+    default Instant getTestInstant() {
+        return Instant.now();
+    }
+
+    @ConfigPath("test.url")
+    default URL getTestURL() {
+        try {
+            return new URL("https://google.com");
+        } catch (MalformedURLException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    @ConfigPath("test.bigdecimal")
+    default BigDecimal getTestBigDecimal() {
+        return BigDecimal.valueOf(10);
+    }
+
+    @ConfigPath("test.biginteger")
+    default BigInteger getTestBigInteger() {
+        return BigInteger.valueOf(10);
     }
 }
