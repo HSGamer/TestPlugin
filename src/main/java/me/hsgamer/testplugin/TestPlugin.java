@@ -1,13 +1,30 @@
 package me.hsgamer.testplugin;
 
+import com.google.common.reflect.TypeToken;
 import me.hsgamer.hscore.bukkit.baseplugin.BasePlugin;
 import me.hsgamer.hscore.bukkit.config.BukkitConfig;
+import me.hsgamer.hscore.config.annotation.converter.SimpleConverter;
+import me.hsgamer.hscore.config.annotation.converter.manager.DefaultConverterManager;
 import me.hsgamer.hscore.config.proxy.ConfigGenerator;
 import org.bukkit.event.Listener;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public final class TestPlugin extends BasePlugin implements Listener {
     @Override
     public void enable() {
+        DefaultConverterManager.registerConverter(new TypeToken<Map<String, Integer>>() {}.getType(), new SimpleConverter(raw -> {
+            System.out.println("Called for Map String Integer");
+            Map<String, Integer> map = new LinkedHashMap<>();
+            if (raw instanceof Map) {
+                for (Map.Entry<?, ?> entry : ((Map<?, ?>) raw).entrySet()) {
+                    map.put(entry.getKey().toString(), Integer.parseInt(entry.getValue().toString()));
+                }
+            }
+            return map;
+        }));
+
         TestConfig testConfig = ConfigGenerator
                 .newInstance(TestConfig.class, new BukkitConfig(this, "test.yml"));
         TestObject testObject = testConfig.getTestObject();
@@ -38,5 +55,6 @@ public final class TestPlugin extends BasePlugin implements Listener {
         System.out.println("Test BigDecimal: " + testConfig.getTestBigDecimal());
         System.out.println("Test URL: " + testConfig.getTestURL());
         System.out.println("Test Instant: " + testConfig.getTestInstant());
+        System.out.println("Test Map: " + testConfig.getTestMap());
     }
 }

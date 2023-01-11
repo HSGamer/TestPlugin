@@ -7,6 +7,8 @@ import java.math.BigInteger;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Instant;
+import java.util.HashMap;
+import java.util.Map;
 
 public interface TestConfig {
     @ConfigPath(value = "test.object", converter = TestConverter.class)
@@ -88,5 +90,12 @@ public interface TestConfig {
     @ConfigPath("test.biginteger")
     default BigInteger getTestBigInteger() {
         return BigInteger.valueOf(10);
+    }
+
+    @ConfigPath("test.map")
+    default Map<String, Integer> getTestMap() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("test", 10);
+        return map;
     }
 }
